@@ -48,7 +48,7 @@ func GenerateReport(rootPaths []string, data *gosec.ReportInfo) (*Report, error)
 			return nil, err
 		}
 
-		result := NewResult(r.rule.ID, r.index, getSarifLevel(issue.Severity.String()), issue.What).
+		result := NewResult(r.rule.ID, r.index, getSarifLevel(issue.Severity.String()), issue.What, strings.ToLower(issue.Severity.String())).
 			WithLocations(location)
 
 		results = append(results, result)
