@@ -81,6 +81,7 @@ func parseSarifRule(issue *gosec.Issue) *ReportingDescriptor {
 		Properties: &PropertyBag{
 			"tags":      []string{"security", issue.Severity.String()},
 			"precision": strings.ToLower(issue.Confidence.String()),
+			"severity":  strings.ToLower(issue.Severity.String()),
 		},
 		DefaultConfiguration: &ReportingConfiguration{
 			Level: getSarifLevel(issue.Severity.String()),
